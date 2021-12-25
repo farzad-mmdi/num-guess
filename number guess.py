@@ -1,17 +1,32 @@
 import random
 
 def num_guess():
-    From = int(input('from:'))
-    To = int(input('to:'))
-    random_num = random.randint(From,To)
-    print(random_num)
     while True:
-        yours = input('guess the number:')
-        if random_num == int(yours):
-            print('thats correct')
-            break
+        try:
+            From = int(input('from:'))
+            To = int(input('to:'))
+            random_num = random.randint(From,To)
+        except ValueError:
+            print('wrong value') 
         else:
-            print('try again') 
+            break       
+    
+    while True:
+            yours = input('guess the number:\nor enter --show to see the number:\n')
+            try:
+                Int = int(yours)
+                if random_num == Int:
+                    print('thats correct')
+                    break
+                else:
+                    print('try again')
+            except ValueError:
+                Str = str(yours) 
+                if Str == '--show':
+                    print(random_num)
+                    break
+                else:
+                    print('try again')
 
 
 num_guess()            
