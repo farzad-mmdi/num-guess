@@ -18,8 +18,10 @@ def num_guess():
                 if random_num == Int:
                     print('thats correct')
                     break
-                else:
-                    print('try again')
+                elif Int > random_num:
+                    print('its lower than that')
+                elif Int < random_num:
+                    print('its higher than that')    
             except ValueError:
                 Str = str(yours) 
                 if Str == '--show':
